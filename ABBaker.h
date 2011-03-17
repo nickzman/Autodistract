@@ -9,9 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <Growl/Growl.h>
 
+@class ABTrackerDatabase;
+
 @interface ABBaker : NSObject <GrowlApplicationBridgeDelegate>
 {
 	NSRecursiveLock *_threadLock;
+	ABTrackerDatabase *_database;
 }
 
 @end

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		E02C5C3C133057A800BE1359 /* TrackingCookieSigs.plist in Resources */ = {isa = PBXBuildFile; fileRef = E02C5C3B133057A800BE1359 /* TrackingCookieSigs.plist */; };
 		E0303D9A132DA873003A9C8E /* ABBaker.m in Sources */ = {isa = PBXBuildFile; fileRef = E0303D99132DA873003A9C8E /* ABBaker.m */; };
 		E0303DBB132DAB4B003A9C8E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B97325FDCFA39411CA2CEA /* Foundation.framework */; };
 		E0303DC1132DACEF003A9C8E /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0303DC0132DACEF003A9C8E /* Growl.framework */; };
@@ -16,6 +17,7 @@
 		E0303DDC132DB0F5003A9C8E /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = E0303DD8132DB07E003A9C8E /* Growl Registration Ticket.growlRegDict */; };
 		E0303DE5132DB296003A9C8E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E0303DE3132DB296003A9C8E /* Localizable.strings */; };
 		E0303DF0132DB2D8003A9C8E /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E0303DC0132DACEF003A9C8E /* Growl.framework */; };
+		E0808BF913319C1200BB7503 /* ABTrackerDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E0808BF813319C1200BB7503 /* ABTrackerDatabase.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,12 +40,15 @@
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		8D1107310486CEB800E47090 /* Autobake-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Autobake-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Autobake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Autobake.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E02C5C3B133057A800BE1359 /* TrackingCookieSigs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TrackingCookieSigs.plist; sourceTree = "<group>"; };
 		E0303D98132DA873003A9C8E /* ABBaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABBaker.h; sourceTree = "<group>"; };
 		E0303D99132DA873003A9C8E /* ABBaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABBaker.m; sourceTree = "<group>"; };
 		E0303DC0132DACEF003A9C8E /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
 		E0303DCF132DAEDF003A9C8E /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = /System/Library/Frameworks/CoreServices.framework; sourceTree = "<absolute>"; };
 		E0303DD8132DB07E003A9C8E /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; explicitFileType = text.plist; fileEncoding = 4; path = "Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
 		E0303DE4132DB296003A9C8E /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E0808BF713319C1200BB7503 /* ABTrackerDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTrackerDatabase.h; sourceTree = "<group>"; };
+		E0808BF813319C1200BB7503 /* ABTrackerDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTrackerDatabase.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +70,8 @@
 			children = (
 				E0303D98132DA873003A9C8E /* ABBaker.h */,
 				E0303D99132DA873003A9C8E /* ABBaker.m */,
+				E0808BF713319C1200BB7503 /* ABTrackerDatabase.h */,
+				E0808BF813319C1200BB7503 /* ABTrackerDatabase.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -119,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				8D1107310486CEB800E47090 /* Autobake-Info.plist */,
+				E02C5C3B133057A800BE1359 /* TrackingCookieSigs.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				E0303DE3132DB296003A9C8E /* Localizable.strings */,
 				E0303DD8132DB07E003A9C8E /* Growl Registration Ticket.growlRegDict */,
@@ -189,6 +197,7 @@
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				E0303DDC132DB0F5003A9C8E /* Growl Registration Ticket.growlRegDict in Resources */,
 				E0303DE5132DB296003A9C8E /* Localizable.strings in Resources */,
+				E02C5C3C133057A800BE1359 /* TrackingCookieSigs.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +210,7 @@
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				E0303D9A132DA873003A9C8E /* ABBaker.m in Sources */,
+				E0808BF913319C1200BB7503 /* ABTrackerDatabase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +251,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Autobake_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				INFOPLIST_FILE = "Autobake-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				PRODUCT_NAME = Autobake;

@@ -7,83 +7,7 @@
 //
 
 #import "ABBaker.h"
-
-void RemoveCookies(id <NSFastEnumeration> cookies, id observer)
-{
-	NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-	
-#ifdef DEBUG
-	NSLog(@"Removing %ld cookies", [(id)cookies count]);
-#endif
-	//[[NSNotificationCenter defaultCenter] removeObserver:observer name:NSHTTPCookieManagerCookiesChangedNotification object:nil];
-	for (NSHTTPCookie *cookie in cookies)
-	{
-		if ([GrowlApplicationBridge isGrowlRunning])
-			[GrowlApplicationBridge notifyWithTitle:[NSString stringWithFormat:NSLocalizedString(@"Deleting Cookie \\U201C%@\\U201D", @"Title of Growl notification"), cookie.name]  description:[NSString stringWithFormat:NSLocalizedString(@"The cookie \\U201C%@\\U201D was set by the Web site \\U201C%@\\U201D and will be deleted on suspicion of being a tracking cookie.", @"Body of Growl notification"), cookie.name, cookie.domain] notificationName:@"CookieDeleted" iconData:nil priority:0 isSticky:NO clickContext:nil];
-		[storage deleteCookie:cookie];
-	}
-	//[[NSNotificationCenter defaultCenter] addObserver:observer selector:@selector(cookiesDidChange:) name:NSHTTPCookieManagerCookiesChangedNotification object:nil];
-}
-
-
-NSSet *SuspectedTrackingCookies(void)
-{
-	NSMutableSet *trackingCookies = [NSMutableSet set];
-	
-	for (NSHTTPCookie *cookie in [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies])
-	{
-		NSString *name = cookie.name;
-		
-		if (![cookie isSessionOnly] &&
-			([name isEqualToString:@"__csv"] ||
-			 [name hasPrefix:@"__g_"] ||                     // Google Analytics?
-			 [name isEqualToString:@"__gads"] ||
-			 [name isEqualToString:@"__qca"] ||
-			 [name isEqualToString:@"__unam"] ||             // Google Analytics
-			 [name hasPrefix:@"__utm"] ||                    // Google Analytics
-			 [name isEqualToString:@"_br_uid_1"] ||
-			 [name isEqualToString:@"_chartbeat2"] ||
-			 [name isEqualToString:@"_jsuid"] ||
-			 [name isEqualToString:@".ASPXANONYMOUS"] ||
-			 [name isEqualToString:@"ACOOKIE"] ||
-			 [name isEqualToString:@"alpha"] ||
-			 [name isEqualToString:@"anonId"] ||
-			 [name isEqualToString:@"BBC-UID"] ||			// BBC
-			 [name hasPrefix:@"BIMREG"] ||
-			 [name isEqualToString:@"CNNid"] ||				// CNN
-			 [name isEqualToString:@"DMUserTrack"] ||
-			 [name isEqualToString:@"EkAnalytics"] ||
-			 [name isEqualToString:@"EktGUID"] ||
-			 [name hasPrefix:@"exp_last"] ||
-			 [name isEqualToString:@"FarkUser"] ||			// Fark.com
-			 [name hasPrefix:@"fpc1000"] ||
-			 [name isEqualToString:@"FTUserTrack"] ||
-			 [name isEqualToString:@"GCIONID"] ||
-			 [name isEqualToString:@"GTC"] ||
-			 [name isEqualToString:@"guest_id"] ||
-			 [name hasPrefix:@"GUID"] ||
-			 [name hasPrefix:@"km_"] ||
-			 [name hasPrefix:@"MintUnique"] ||
-			 [name isEqualToString:@"NGUserID"] ||
-			 [name isEqualToString:@"NID"] ||				// Google
-			 [name hasPrefix:@"OA"] ||
-			 [name hasPrefix:@"PBCS"] ||
-			 [name hasPrefix:@"PD_poll"] ||
-			 [name isEqualToString:@"RES_TRACKINGID"] ||
-			 [name hasPrefix:@"s_"] ||
-			 [name isEqualToString:@"scorecardresearch"] ||  // Scorecard Research
-			 [name hasPrefix:@"SESSID"] ||
-			 [name isEqualToString:@"track"] ||
-			 [name isEqualToString:@"UNAUTHID"] ||
-			 [name isEqualToString:@"uuid"] ||
-			 [name hasPrefix:@"visitor_id"] ||
-			 [name isEqualToString:@"welcome"] ||
-			 [name isEqualToString:@"wooTracker"] ||
-			 [name isEqualToString:@"WT_FPC"]))
-			[trackingCookies addObject:cookie];
-	}
-	return trackingCookies;
-}
+#import "ABTrackerDatabase.h"
 
 @implementation ABBaker
 
@@ -93,7 +17,7 @@ NSSet *SuspectedTrackingCookies(void)
 	{
 		NSString *dcsNotificationName = [NSString stringWithFormat:@"[DiskCookieStorage %@/Library/Cookies/Cookies.plist]", NSHomeDirectory()];
 		
-		
+		_database = [[ABTrackerDatabase alloc] init];
 		_threadLock = [[NSRecursiveLock alloc] init];
 		//[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cookiesDidChange:) name:NSHTTPCookieManagerCookiesChangedNotification object:nil];
 		[[NSDistributedNotificationCenter defaultCenter] addObserver:self selector:@selector(cookiesDidChange:) name:dcsNotificationName object:nil];
@@ -119,13 +43,27 @@ NSSet *SuspectedTrackingCookies(void)
 	
 	[_threadLock lock];
 #ifdef DEBUG
-	NSLog(@"Cleaning cookies");
+	NSLog(@"Cleaning cookies started at %@", [NSDate date]);
 #endif
 	@try
 	{
-		NSSet *trackingCookies = SuspectedTrackingCookies();
+		NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
 		
-		RemoveCookies(trackingCookies, self);
+		for (NSHTTPCookie *cookie in [[cookieJar cookies] copy])	// work on a copy of the array so we can't be accused of mutating it while iterating through it
+		{
+			NSString *description;
+			
+			if ([_database isCookieATrackingCookie:cookie why:&description])
+			{
+				if ([GrowlApplicationBridge isGrowlRunning])
+				{
+					if (!description || [description isEqualToString:@""])
+						description = NSLocalizedString(@"unknown", @"Description of a cookie whose origins are unknown");
+					[GrowlApplicationBridge notifyWithTitle:[NSString stringWithFormat:NSLocalizedString(@"Deleting %@ Cookie", @"Title of Growl notification with the description of the cookie"), description]  description:[NSString stringWithFormat:NSLocalizedString(@"The cookie \\U201C%@\\U201D was set by the Web site \\U201C%@\\U201D and will be deleted on suspicion of being a tracking cookie.", @"Body of Growl notification"), cookie.name, cookie.domain] notificationName:@"CookieDeleted" iconData:nil priority:0 isSticky:NO clickContext:nil];
+				}
+				[cookieJar deleteCookie:cookie];
+			}
+		}
 	}
 	@catch (NSException * e)
 	{
@@ -133,6 +71,9 @@ NSSet *SuspectedTrackingCookies(void)
 	}
 	@finally
 	{
+#ifdef DEBUG
+		NSLog(@"Cleaning cookies ended at %@", [NSDate date]);
+#endif
 		[_threadLock unlock];
 		[pool drain];
 	}

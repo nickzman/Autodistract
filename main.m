@@ -22,17 +22,19 @@ int main(int argc, char *argv[])
 	baker = [[ABBaker alloc] init];
 	[[NSGarbageCollector defaultCollector] disableCollectorForPointer:baker];	// don't kill the baker
 	if ([[NSProcessInfo processInfo] respondsToSelector:@selector(enableSuddenTermination)])
-		[[NSProcessInfo processInfo] performSelector:@selector(enableSuddenTermination)];
+		[[NSProcessInfo processInfo] performSelector:@selector(enableSuddenTermination)];	// on Snow Leopard & later, let the login window kill us dead when the user wants to log out; we don't care
 	
+#ifndef DEBUG
 	// Add our app to the user's login item list:
 	loginItems = LSSharedFileListCreate(NULL, kLSSharedFileListSessionLoginItems, NULL);
 	LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemLast, (CFStringRef)[[NSProcessInfo processInfo] processName], NULL, (CFURLRef)[NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]], NULL, NULL);
 	CFRelease(loginItems);
+#endif
 	
 	if ([GrowlApplicationBridge isGrowlInstalled])
 		[GrowlApplicationBridge setGrowlDelegate:baker];
 	
-	// Run 'till the cows come home:
+	// Run 'till the cows come home. We don't need no GUI.
 	while (1)
 	{
 		[[NSRunLoop currentRunLoop] runUntilDate:[NSDate distantFuture]];
