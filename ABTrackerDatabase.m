@@ -60,19 +60,18 @@
 - (BOOL)isCookieATrackingCookie:(NSHTTPCookie *)cookie why:(NSString **)description
 {
 	NSString *cookieName = [cookie name];
+	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(%K == YES AND %@ BEGINSWITH %K) OR (%K == NO AND %K == %@)", @"BeginsWith", cookieName, @"Name", @"BeginsWith", @"Name", cookieName];
+	NSArray *matchingSigs = [_signatures filteredArrayUsingPredicate:predicate];
 	
-	for (NSDictionary *sig in _signatures)
+	if (matchingSigs && matchingSigs.count)
 	{
-		NSString *name = [sig objectForKey:@"Name"];
-		BOOL beginsWith = [[sig objectForKey:@"BeginsWith"] boolValue];
-		NSString *urDescription = [sig objectForKey:@"UserReadableDescription"];
-		
-		if ((beginsWith && [cookieName hasPrefix:name]) || (!beginsWith && [cookieName isEqualToString:name]))
+		if (description)
 		{
-			if (description)
-				*description = urDescription;
-			return YES;
+			NSDictionary *sig = [matchingSigs objectAtIndex:0UL];
+			
+			*description = [sig objectForKey:@"UserReadableDescription"];
 		}
+		return YES;
 	}
 	return NO;
 }
