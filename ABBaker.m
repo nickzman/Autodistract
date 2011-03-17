@@ -61,6 +61,9 @@
 						description = NSLocalizedString(@"unknown", @"Description of a cookie whose origins are unknown");
 					[GrowlApplicationBridge notifyWithTitle:[NSString stringWithFormat:NSLocalizedString(@"Deleting %@ Cookie", @"Title of Growl notification with the description of the cookie"), description]  description:[NSString stringWithFormat:NSLocalizedString(@"The cookie \\U201C%@\\U201D was set by the Web site \\U201C%@\\U201D and will be deleted on suspicion of being a tracking cookie.", @"Body of Growl notification"), cookie.name, cookie.domain] notificationName:@"CookieDeleted" iconData:nil priority:0 isSticky:NO clickContext:nil];
 				}
+#ifdef DEBUG
+				NSLog(@"Deleting cookie %@", cookie);
+#endif
 				[cookieJar deleteCookie:cookie];
 			}
 		}
