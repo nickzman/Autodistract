@@ -20,14 +20,6 @@
 	</dict>
 	<dict>
 		<key>Name</key>
-		<string>__qca</string>
-		<key>BeginsWith</key>
-		<false/>
-		<key>UserReadableDescription</key>
-		<string>Google Analytics</string>
-	</dict>
-	<dict>
-		<key>Name</key>
 		<string>__gads</string>
 		<key>BeginsWith</key>
 		<false/>
@@ -41,6 +33,14 @@
 		<true/>
 		<key>UserReadableDescription</key>
 		<string>Google Analytics</string>
+	</dict>
+	<dict>
+		<key>Name</key>
+		<string>__qc</string>
+		<key>BeginsWith</key>
+		<true/>
+		<key>UserReadableDescription</key>
+		<string>Quantcast</string>
 	</dict>
 	<dict>
 		<key>Name</key>
@@ -113,14 +113,6 @@
 		<false/>
 		<key>UserReadableDescription</key>
 		<string>generic</string>
-	</dict>
-	<dict>
-		<key>Name</key>
-		<string>SESSID</string>
-		<key>BeginsWith</key>
-		<true/>
-		<key>UserReadableDescription</key>
-		<string>PHP</string>
 	</dict>
 	<dict>
 		<key>Name</key>
@@ -273,6 +265,14 @@
 		<true/>
 		<key>UserReadableDescription</key>
 		<string>Crowd Science</string>
+	</dict>
+	<dict>
+		<key>Name</key>
+		<string>_cs</string>
+		<key>BeginsWith</key>
+		<true/>
+		<key>UserReadableDescription</key>
+		<string>AddThis</string>
 	</dict>
 	<dict>
 		<key>Name</key>
