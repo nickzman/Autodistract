@@ -17,6 +17,7 @@
 		E0303DDC132DB0F5003A9C8E /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = E0303DD8132DB07E003A9C8E /* Growl Registration Ticket.growlRegDict */; };
 		E0303DE5132DB296003A9C8E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E0303DE3132DB296003A9C8E /* Localizable.strings */; };
 		E0303DF0132DB2D8003A9C8E /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E0303DC0132DACEF003A9C8E /* Growl.framework */; };
+		E041AF6013354A9F00D3FD37 /* Autobake.icns in Resources */ = {isa = PBXBuildFile; fileRef = E041AF5F13354A9F00D3FD37 /* Autobake.icns */; };
 		E0808BF913319C1200BB7503 /* ABTrackerDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E0808BF813319C1200BB7503 /* ABTrackerDatabase.m */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		E0303DCF132DAEDF003A9C8E /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = /System/Library/Frameworks/CoreServices.framework; sourceTree = "<absolute>"; };
 		E0303DD8132DB07E003A9C8E /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; explicitFileType = text.plist; fileEncoding = 4; path = "Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
 		E0303DE4132DB296003A9C8E /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E041AF5F13354A9F00D3FD37 /* Autobake.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Autobake.icns; sourceTree = "<group>"; };
 		E0808BF713319C1200BB7503 /* ABTrackerDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTrackerDatabase.h; sourceTree = "<group>"; };
 		E0808BF813319C1200BB7503 /* ABTrackerDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTrackerDatabase.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,6 +131,7 @@
 				E02C5C3B133057A800BE1359 /* TrackingCookieSigs.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				E0303DE3132DB296003A9C8E /* Localizable.strings */,
+				E041AF5F13354A9F00D3FD37 /* Autobake.icns */,
 				E0303DD8132DB07E003A9C8E /* Growl Registration Ticket.growlRegDict */,
 			);
 			name = Resources;
@@ -198,6 +201,7 @@
 				E0303DDC132DB0F5003A9C8E /* Growl Registration Ticket.growlRegDict in Resources */,
 				E0303DE5132DB296003A9C8E /* Localizable.strings in Resources */,
 				E02C5C3C133057A800BE1359 /* TrackingCookieSigs.plist in Resources */,
+				E041AF6013354A9F00D3FD37 /* Autobake.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
