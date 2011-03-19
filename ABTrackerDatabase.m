@@ -14,7 +14,7 @@
 {
 	if (self = [super init])
 	{
-		FSRef appSupportFSRef;
+		/*FSRef appSupportFSRef;
 		BOOL needsDownload = NO;
 		
 		if (FSFindFolder(kUserDomain, kApplicationSupportFolderType, true, &appSupportFSRef) == noErr)	// get the user's application support folder; unless something stupendous happens this should always work
@@ -36,7 +36,7 @@
 			
 			if (needsDownload)
 			{
-				_signatures = [NSArray arrayWithContentsOfURL:[NSURL URLWithString:@"http://seiryu.home.comcast.net/TrackingCookieSigs.plist"]];	// start downloading
+				_signatures = [NSArray arrayWithContentsOfURL:[NSURL URLWithString:@""]];	// start downloading
 				if (_signatures)	// if we got it, then write it to disk
 				{
 					if (![[NSFileManager defaultManager] fileExistsAtPath:abSupportFolder])
@@ -51,7 +51,8 @@
 		}
 		
 		if (!_signatures)	// if we couldn't find it on the disk or on the 'net, then fall back on the signature file of last resort, which is in our bundle
-			_signatures = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"TrackingCookieSigs" ofType:@"plist"]];
+		 */
+			_signatures = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"TrackingCookieSigs" ofType:@"plist"]];
 	}
 	return self;
 }
