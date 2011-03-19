@@ -1,6 +1,6 @@
 //
 //  ABTrackerDatabase.m
-//  Autobake
+//  Autodistract
 //
 //  Created by Nick Zitzmann on 3/16/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
@@ -20,7 +20,7 @@
 		if (FSFindFolder(kUserDomain, kApplicationSupportFolderType, true, &appSupportFSRef) == noErr)	// get the user's application support folder; unless something stupendous happens this should always work
 		{
 			NSURL *appSupportFolderURL = (NSURL *)CFURLCreateFromFSRef(NULL, &appSupportFSRef);
-			NSString *abSupportFolder = [appSupportFolderURL.path stringByAppendingPathComponent:@"Autobake"];
+			NSString *abSupportFolder = [appSupportFolderURL.path stringByAppendingPathComponent:@"Autodistract"];
 			NSString *pathToSignatureFile = [abSupportFolder stringByAppendingPathComponent:@"TrackingCookieSigs.plist"];
 			
 			NSMakeCollectable(appSupportFolderURL);

@@ -17,7 +17,7 @@
 		E0303DDC132DB0F5003A9C8E /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = E0303DD8132DB07E003A9C8E /* Growl Registration Ticket.growlRegDict */; };
 		E0303DE5132DB296003A9C8E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E0303DE3132DB296003A9C8E /* Localizable.strings */; };
 		E0303DF0132DB2D8003A9C8E /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = E0303DC0132DACEF003A9C8E /* Growl.framework */; };
-		E041AF6013354A9F00D3FD37 /* Autobake.icns in Resources */ = {isa = PBXBuildFile; fileRef = E041AF5F13354A9F00D3FD37 /* Autobake.icns */; };
+		E041AF6013354A9F00D3FD37 /* Autodistract.icns in Resources */ = {isa = PBXBuildFile; fileRef = E041AF5F13354A9F00D3FD37 /* Autodistract.icns */; };
 		E0808BF913319C1200BB7503 /* ABTrackerDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E0808BF813319C1200BB7503 /* ABTrackerDatabase.m */; };
 /* End PBXBuildFile section */
 
@@ -36,11 +36,11 @@
 
 /* Begin PBXFileReference section */
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		256AC3F00F4B6AF500CF3369 /* Autobake_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Autobake_Prefix.pch; sourceTree = "<group>"; };
+		256AC3F00F4B6AF500CF3369 /* Autodistract_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Autodistract_Prefix.pch; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
-		8D1107310486CEB800E47090 /* Autobake-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Autobake-Info.plist"; sourceTree = "<group>"; };
-		8D1107320486CEB800E47090 /* Autobake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Autobake.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1107310486CEB800E47090 /* Autodistract-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Autodistract-Info.plist"; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* Autodistract.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Autodistract.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E02C5C3B133057A800BE1359 /* TrackingCookieSigs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TrackingCookieSigs.plist; sourceTree = "<group>"; };
 		E0303D98132DA873003A9C8E /* ABBaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABBaker.h; sourceTree = "<group>"; };
 		E0303D99132DA873003A9C8E /* ABBaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABBaker.m; sourceTree = "<group>"; };
@@ -48,7 +48,7 @@
 		E0303DCF132DAEDF003A9C8E /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = /System/Library/Frameworks/CoreServices.framework; sourceTree = "<absolute>"; };
 		E0303DD8132DB07E003A9C8E /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; explicitFileType = text.plist; fileEncoding = 4; path = "Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
 		E0303DE4132DB296003A9C8E /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
-		E041AF5F13354A9F00D3FD37 /* Autobake.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Autobake.icns; sourceTree = "<group>"; };
+		E041AF5F13354A9F00D3FD37 /* Autodistract.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Autodistract.icns; sourceTree = "<group>"; };
 		E0808BF713319C1200BB7503 /* ABTrackerDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTrackerDatabase.h; sourceTree = "<group>"; };
 		E0808BF813319C1200BB7503 /* ABTrackerDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABTrackerDatabase.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,7 +98,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D1107320486CEB800E47090 /* Autobake.app */,
+				8D1107320486CEB800E47090 /* Autodistract.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -118,7 +118,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				256AC3F00F4B6AF500CF3369 /* Autobake_Prefix.pch */,
+				256AC3F00F4B6AF500CF3369 /* Autodistract_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
 			name = "Other Sources";
@@ -127,11 +127,11 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				8D1107310486CEB800E47090 /* Autobake-Info.plist */,
+				8D1107310486CEB800E47090 /* Autodistract-Info.plist */,
 				E02C5C3B133057A800BE1359 /* TrackingCookieSigs.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				E0303DE3132DB296003A9C8E /* Localizable.strings */,
-				E041AF5F13354A9F00D3FD37 /* Autobake.icns */,
+				E041AF5F13354A9F00D3FD37 /* Autodistract.icns */,
 				E0303DD8132DB07E003A9C8E /* Growl Registration Ticket.growlRegDict */,
 			);
 			name = Resources;
@@ -149,9 +149,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8D1107260486CEB800E47090 /* Autobake */ = {
+		8D1107260486CEB800E47090 /* Autodistract */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Autobake" */;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Autodistract" */;
 			buildPhases = (
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
@@ -162,10 +162,10 @@
 			);
 			dependencies = (
 			);
-			name = Autobake;
+			name = Autodistract;
 			productInstallPath = "$(HOME)/Applications";
 			productName = Autobake;
-			productReference = 8D1107320486CEB800E47090 /* Autobake.app */;
+			productReference = 8D1107320486CEB800E47090 /* Autodistract.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -173,7 +173,7 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Autobake" */;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Autodistract" */;
 			compatibilityVersion = "Xcode 3.1";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -187,7 +187,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8D1107260486CEB800E47090 /* Autobake */,
+				8D1107260486CEB800E47090 /* Autodistract */,
 			);
 		};
 /* End PBXProject section */
@@ -201,7 +201,7 @@
 				E0303DDC132DB0F5003A9C8E /* Growl Registration Ticket.growlRegDict in Resources */,
 				E0303DE5132DB296003A9C8E /* Localizable.strings in Resources */,
 				E02C5C3C133057A800BE1359 /* TrackingCookieSigs.plist in Resources */,
-				E041AF6013354A9F00D3FD37 /* Autobake.icns in Resources */,
+				E041AF6013354A9F00D3FD37 /* Autodistract.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,11 +254,12 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Autobake_Prefix.pch;
+				GCC_PREFIX_HEADER = Autodistract_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
-				INFOPLIST_FILE = "Autobake-Info.plist";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "Autodistract-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
-				PRODUCT_NAME = Autobake;
+				PRODUCT_NAME = Autodistract;
 			};
 			name = Debug;
 		};
@@ -273,10 +274,11 @@
 				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Autobake_Prefix.pch;
-				INFOPLIST_FILE = "Autobake-Info.plist";
+				GCC_PREFIX_HEADER = Autodistract_Prefix.pch;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "Autodistract-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
-				PRODUCT_NAME = Autobake;
+				PRODUCT_NAME = Autodistract;
 			};
 			name = Release;
 		};
@@ -319,7 +321,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Autobake" */ = {
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Autodistract" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4B08A954540054247B /* Debug */,
@@ -328,7 +330,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Autobake" */ = {
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Autodistract" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,

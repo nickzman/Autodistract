@@ -1,6 +1,6 @@
 //
 //  main.m
-//  Autobake
+//  Autodistract
 //
 //  Created by Nick Zitzmann on 3/13/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
