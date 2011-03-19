@@ -76,6 +76,14 @@
 	</dict>
 	<dict>
 		<key>CookieName</key>
+		<string>_em_</string>
+		<key>CookieNameBeginsWith</key>
+		<true/>
+		<key>UserReadableDescription</key>
+		<string>Effective Measure</string>
+	</dict>
+	<dict>
+		<key>CookieName</key>
 		<string>welcome</string>
 		<key>CookieNameBeginsWith</key>
 		<false/>
