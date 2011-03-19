@@ -14,11 +14,15 @@
 int main(int argc, char *argv[])
 {
 	ABBaker *baker;
+#ifndef DEBUG
 	LSSharedFileListRef loginItems;
+#endif
 	
 	// Start me up:
     objc_startCollectorThread();
 	sleep(1);	// wait a second for the collector thread to come up
+	if ([GrowlApplicationBridge isGrowlInstalled])
+		[GrowlApplicationBridge setGrowlDelegate:baker];	// initialize Growl
 	baker = [[ABBaker alloc] init];
 	[[NSGarbageCollector defaultCollector] disableCollectorForPointer:baker];	// don't kill the baker
 	if ([[NSProcessInfo processInfo] respondsToSelector:@selector(enableSuddenTermination)])
@@ -30,9 +34,6 @@ int main(int argc, char *argv[])
 	LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemLast, (CFStringRef)[[NSProcessInfo processInfo] processName], NULL, (CFURLRef)[NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]], NULL, NULL);
 	CFRelease(loginItems);
 #endif
-	
-	if ([GrowlApplicationBridge isGrowlInstalled])
-		[GrowlApplicationBridge setGrowlDelegate:baker];
 	
 	// Run 'till the cows come home. We don't need no GUI.
 	while (1)
