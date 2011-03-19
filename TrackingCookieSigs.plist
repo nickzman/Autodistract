@@ -3,292 +3,298 @@
 <plist version="1.0">
 <array>
 	<dict>
-		<key>Name</key>
+		<key>CookieName</key>
 		<string>__utm</string>
-		<key>BeginsWith</key>
+		<key>CookieNameBeginsWith</key>
 		<true/>
 		<key>UserReadableDescription</key>
 		<string>Google Analytics</string>
 	</dict>
 	<dict>
-		<key>Name</key>
+		<key>CookieName</key>
 		<string>__unam</string>
-		<key>BeginsWith</key>
+		<key>CookieNameBeginsWith</key>
 		<false/>
 		<key>UserReadableDescription</key>
 		<string>Google Analytics</string>
 	</dict>
 	<dict>
-		<key>Name</key>
+		<key>CookieName</key>
 		<string>__gads</string>
-		<key>BeginsWith</key>
+		<key>CookieNameBeginsWith</key>
 		<false/>
 		<key>UserReadableDescription</key>
 		<string>Google Analytics</string>
 	</dict>
 	<dict>
-		<key>Name</key>
+		<key>CookieName</key>
 		<string>__g_</string>
-		<key>BeginsWith</key>
+		<key>CookieNameBeginsWith</key>
 		<true/>
 		<key>UserReadableDescription</key>
 		<string>Google Analytics</string>
 	</dict>
 	<dict>
-		<key>Name</key>
+		<key>CookieName</key>
 		<string>__qc</string>
-		<key>BeginsWith</key>
+		<key>CookieNameBeginsWith</key>
 		<true/>
 		<key>UserReadableDescription</key>
 		<string>Quantcast</string>
 	</dict>
 	<dict>
-		<key>Name</key>
+		<key>CookieName</key>
 		<string>WEBTRENDS_ID</string>
-		<key>BeginsWith</key>
+		<key>CookieNameBeginsWith</key>
 		<false/>
 		<key>UserReadableDescription</key>
 		<string>WebTrends</string>
 	</dict>
 	<dict>
-		<key>Name</key>
+		<key>CookieName</key>
 		<string>WT_</string>
-		<key>BeginsWith</key>
+		<key>CookieNameBeginsWith</key>
 		<true/>
 		<key>UserReadableDescription</key>
 		<string>WebTrends</string>
 	</dict>
 	<dict>
-		<key>Name</key>
+		<key>CookieName</key>
 		<string>wooMeta</string>
-		<key>BeginsWith</key>
+		<key>CookieNameBeginsWith</key>
 		<false/>
 		<key>UserReadableDescription</key>
 		<string>Woopra</string>
 	</dict>
 	<dict>
-		<key>Name</key>
+		<key>CookieName</key>
 		<string>wooTracker</string>
-		<key>BeginsWith</key>
+		<key>CookieNameBeginsWith</key>
 		<false/>
 		<key>UserReadableDescription</key>
 		<string>Woopra</string>
 	</dict>
 	<dict>
-		<key>Name</key>
+		<key>CookieName</key>
 		<string>welcome</string>
-		<key>BeginsWith</key>
+		<key>CookieNameBeginsWith</key>
 		<false/>
 		<key>UserReadableDescription</key>
 		<string>generic</string>
 	</dict>
 	<dict>
-		<key>Name</key>
+		<key>CookieName</key>
 		<string>visitor_id</string>
-		<key>BeginsWith</key>
+		<key>CookieNameBeginsWith</key>
 		<false/>
 		<key>UserReadableDescription</key>
 		<string>generic</string>
 	</dict>
 	<dict>
-		<key>Name</key>
+		<key>CookieName</key>
 		<string>uuid</string>
-		<key>BeginsWith</key>
+		<key>CookieNameBeginsWith</key>
 		<false/>
 		<key>UserReadableDescription</key>
 		<string>generic</string>
 	</dict>
 	<dict>
-		<key>Name</key>
+		<key>CookieName</key>
 		<string>UNAUTHID</string>
-		<key>BeginsWith</key>
+		<key>CookieNameBeginsWith</key>
 		<false/>
 		<key>UserReadableDescription</key>
 		<string></string>
 	</dict>
 	<dict>
-		<key>Name</key>
+		<key>CookieName</key>
 		<string>track</string>
-		<key>BeginsWith</key>
+		<key>CookieNameBeginsWith</key>
 		<false/>
 		<key>UserReadableDescription</key>
 		<string>generic</string>
 	</dict>
 	<dict>
-		<key>Name</key>
+		<key>CookieName</key>
 		<string>scorecardresearch</string>
-		<key>BeginsWith</key>
+		<key>CookieNameBeginsWith</key>
 		<false/>
 		<key>UserReadableDescription</key>
 		<string>Scorecard Research</string>
 	</dict>
 	<dict>
-		<key>Name</key>
+		<key>CookieName</key>
 		<string>s_</string>
-		<key>BeginsWith</key>
+		<key>CookieNameBeginsWith</key>
 		<true/>
 		<key>UserReadableDescription</key>
 		<string>Omniture</string>
 	</dict>
 	<dict>
-		<key>Name</key>
+		<key>CookieName</key>
 		<string>RES_TRACKINGID</string>
-		<key>BeginsWith</key>
+		<key>CookieNameBeginsWith</key>
 		<false/>
 		<key>UserReadableDescription</key>
 		<string></string>
 	</dict>
 	<dict>
-		<key>Name</key>
+		<key>CookieName</key>
 		<string>NID</string>
-		<key>BeginsWith</key>
+		<key>CookieNameBeginsWith</key>
 		<false/>
 		<key>UserReadableDescription</key>
 		<string>Google</string>
 	</dict>
 	<dict>
-		<key>Name</key>
+		<key>CookieName</key>
 		<string>NGUserID</string>
-		<key>BeginsWith</key>
+		<key>CookieNameBeginsWith</key>
 		<false/>
 		<key>UserReadableDescription</key>
 		<string>Net Gravity</string>
 	</dict>
 	<dict>
-		<key>Name</key>
+		<key>CookieName</key>
 		<string>MintUnique</string>
-		<key>BeginsWith</key>
+		<key>CookieNameBeginsWith</key>
 		<true/>
 		<key>UserReadableDescription</key>
 		<string>Mint</string>
 	</dict>
 	<dict>
-		<key>Name</key>
+		<key>CookieName</key>
 		<string>GUID</string>
-		<key>BeginsWith</key>
+		<key>CookieNameBeginsWith</key>
 		<true/>
 		<key>UserReadableDescription</key>
 		<string>generic</string>
 	</dict>
 	<dict>
-		<key>Name</key>
+		<key>CookieName</key>
 		<string>GCIONID</string>
-		<key>BeginsWith</key>
+		<key>CookieNameBeginsWith</key>
 		<false/>
 		<key>UserReadableDescription</key>
 		<string>ADTECH</string>
 	</dict>
 	<dict>
-		<key>Name</key>
+		<key>CookieName</key>
 		<string>FTUserTrack</string>
-		<key>BeginsWith</key>
+		<key>CookieNameBeginsWith</key>
 		<false/>
 		<key>UserReadableDescription</key>
 		<string></string>
 	</dict>
 	<dict>
-		<key>Name</key>
+		<key>CookieName</key>
 		<string>FarkUser</string>
-		<key>BeginsWith</key>
+		<key>CookieNameBeginsWith</key>
 		<false/>
 		<key>UserReadableDescription</key>
 		<string>Fark.com</string>
 	</dict>
 	<dict>
-		<key>Name</key>
+		<key>CookieName</key>
 		<string>EktGUID</string>
-		<key>BeginsWith</key>
+		<key>CookieNameBeginsWith</key>
 		<false/>
 		<key>UserReadableDescription</key>
 		<string>Ektron</string>
 	</dict>
 	<dict>
-		<key>Name</key>
+		<key>CookieName</key>
 		<string>EkAnalytics</string>
-		<key>BeginsWith</key>
+		<key>CookieNameBeginsWith</key>
 		<false/>
 		<key>UserReadableDescription</key>
 		<string>Ektron</string>
 	</dict>
 	<dict>
-		<key>Name</key>
+		<key>CookieName</key>
 		<string>DMUserTrack</string>
-		<key>BeginsWith</key>
+		<key>CookieNameBeginsWith</key>
 		<false/>
 		<key>UserReadableDescription</key>
 		<string></string>
 	</dict>
 	<dict>
-		<key>Name</key>
+		<key>CookieName</key>
 		<string>BBC-UID</string>
-		<key>BeginsWith</key>
+		<key>CookieNameBeginsWith</key>
 		<false/>
 		<key>UserReadableDescription</key>
 		<string>BBC</string>
 	</dict>
 	<dict>
-		<key>Name</key>
+		<key>CookieName</key>
 		<string>.ASPXANONYMOUS</string>
-		<key>BeginsWith</key>
+		<key>CookieNameBeginsWith</key>
 		<false/>
 		<key>UserReadableDescription</key>
 		<string>ASP.NET</string>
 	</dict>
 	<dict>
-		<key>Name</key>
+		<key>CookieName</key>
 		<string>cluid</string>
-		<key>BeginsWith</key>
+		<key>CookieNameBeginsWith</key>
 		<false/>
 		<key>UserReadableDescription</key>
 		<string>Clicky</string>
 	</dict>
 	<dict>
-		<key>Name</key>
+		<key>CookieName</key>
 		<string>_jsuid</string>
-		<key>BeginsWith</key>
+		<key>CookieNameBeginsWith</key>
 		<false/>
 		<key>UserReadableDescription</key>
 		<string>Clicky</string>
 	</dict>
 	<dict>
-		<key>Name</key>
+		<key>CookieName</key>
 		<string>_chartbeat2</string>
-		<key>BeginsWith</key>
+		<key>CookieNameBeginsWith</key>
 		<false/>
 		<key>UserReadableDescription</key>
 		<string>Chartbeat</string>
 	</dict>
 	<dict>
-		<key>Name</key>
+		<key>CookieName</key>
 		<string>__cs</string>
-		<key>BeginsWith</key>
+		<key>CookieNameBeginsWith</key>
 		<true/>
 		<key>UserReadableDescription</key>
 		<string>Crowd Science</string>
 	</dict>
 	<dict>
-		<key>Name</key>
+		<key>CookieName</key>
 		<string>_cs</string>
-		<key>BeginsWith</key>
+		<key>CookieNameBeginsWith</key>
 		<true/>
 		<key>UserReadableDescription</key>
 		<string>AddThis</string>
 	</dict>
 	<dict>
-		<key>Name</key>
+		<key>CookieName</key>
 		<string>guest_id</string>
-		<key>BeginsWith</key>
+		<key>CookieNameBeginsWith</key>
 		<false/>
 		<key>UserReadableDescription</key>
 		<string>Twitter</string>
 	</dict>
 	<dict>
-		<key>Name</key>
-		<string></string>
-		<key>BeginsWith</key>
+		<key>CookieName</key>
+		<string>CNNid</string>
+		<key>CookieNameBeginsWith</key>
 		<false/>
 		<key>UserReadableDescription</key>
-		<string></string>
+		<string>CNN</string>
+	</dict>
+	<dict>
+		<key>CookieDomain</key>
+		<string>doubleclick.net</string>
+		<key>UserReadableDescription</key>
+		<string>DoubleClick</string>
 	</dict>
 </array>
 </plist>

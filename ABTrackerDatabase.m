@@ -60,7 +60,8 @@
 - (BOOL)isCookieATrackingCookie:(NSHTTPCookie *)cookie why:(NSString **)description
 {
 	NSString *cookieName = [cookie name];
-	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(%K == YES AND %@ BEGINSWITH %K) OR (%K == NO AND %K == %@)", @"BeginsWith", cookieName, @"Name", @"BeginsWith", @"Name", cookieName];
+	NSString *cookieDomain = [cookie domain];
+	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(%K == YES AND %@ BEGINSWITH %K) OR (%K == NO AND %K == %@) OR %@ ENDSWITH %K", @"CookieNameBeginsWith", cookieName, @"CookieName", @"CookieNameBeginsWith", @"CookieName", cookieName, cookieDomain, @"CookieDomain"];
 	NSArray *matchingSigs = [_signatures filteredArrayUsingPredicate:predicate];
 	
 	if (matchingSigs && matchingSigs.count)
