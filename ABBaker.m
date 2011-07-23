@@ -15,19 +15,31 @@
 
 #import "ABBaker.h"
 #import "ABTrackerDatabase.h"
+#import <sys/event.h>
 
 @implementation ABBaker
 
 - (id)init
 {
-	if (self = [super init])
+	self = [super init];
+	if (self)
 	{
-		NSString *dcsNotificationName = [NSString stringWithFormat:@"[DiskCookieStorage %@/Library/Cookies/Cookies.plist]", NSHomeDirectory()];
+		SInt32 osVersion;
+		
+		Gestalt(gestaltSystemVersion, &osVersion);
 		
 		_database = [[ABTrackerDatabase alloc] init];
 		_threadLock = [[NSRecursiveLock alloc] init];
 		//[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cookiesDidChange:) name:NSHTTPCookieManagerCookiesChangedNotification object:nil];
-		[[NSDistributedNotificationCenter defaultCenter] addObserver:self selector:@selector(cookiesDidChange:) name:dcsNotificationName object:nil];
+		// Unfortunately the cookies changed notification still doesn't work in Lion (it was broken in Tiger and Leopard as well), so we use a workaround: We watch for changes to the cookies file using kqueue, and when a change occurs, then we perform a cleansing.
+		if (osVersion >= 0x1070)
+			[NSThread detachNewThreadSelector:@selector(threadedWatchCookies) toTarget:self withObject:nil];
+		else
+		{
+			NSString *dcsNotificationName = [NSString stringWithFormat:@"[DiskCookieStorage %@/Library/Cookies/Cookies.plist]", NSHomeDirectory()];
+			
+			[[NSDistributedNotificationCenter defaultCenter] addObserver:self selector:@selector(cookiesDidChange:) name:dcsNotificationName object:nil suspensionBehavior:NSNotificationSuspensionBehaviorDeliverImmediately];
+		}
 		[self performSelector:@selector(cookiesDidChange:)];
 	}
 	return self;
@@ -43,6 +55,39 @@
 	}
 	else	// if so, then try again later
 		[self performSelector:_cmd withObject:aNotification afterDelay:1.0];
+}
+
+
+- (void)threadedWatchCookies
+{
+	int kQueue = kqueue();
+	NSFileManager *fm = [[NSFileManager alloc] init];
+	NSURL *userLibraryURL = [fm URLForDirectory:NSLibraryDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:NULL];
+	NSURL *cookiesURL = [[userLibraryURL URLByAppendingPathComponent:@"Cookies"] URLByAppendingPathComponent:@"Cookies.binarycookies"];
+	
+	while (1)	// loop forever
+	{
+		@try
+		{
+			struct kevent kEvent, theEvent;
+			int fd;
+			
+			do	// we want to watch ~/Library/Cookies/Cookies.binarycookies
+			{
+				fd = open(cookiesURL.path.fileSystemRepresentation, O_EVTONLY, 0);
+			} while (fd == 0);	// keep trying until it works
+			
+			EV_SET(&kEvent, fd, EVFILT_VNODE, EV_ADD|EV_ENABLE|EV_CLEAR, NOTE_WRITE|NOTE_DELETE, 0, 0);
+			kevent(kQueue, &kEvent, 1, NULL, 0, NULL);	// watch for changes to this file
+			kevent(kQueue, NULL, 0, &theEvent, 1, NULL);	// block here until a change has been made
+			[self cookiesDidChange:nil];	// once a change has been made, let's cleanse it
+			close(fd);	// clean up
+		}
+		@catch (NSException *exception)
+		{
+			NSLog(@"%@", exception);
+		}
+	}
 }
 
 
