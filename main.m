@@ -28,9 +28,9 @@ int main(int argc, char *argv[])
 	// Start me up:
     objc_startCollectorThread();
 	sleep(1);	// wait a second for the collector thread to come up
+	baker = [[ABBaker alloc] init];
 	if ([GrowlApplicationBridge isGrowlInstalled])
 		[GrowlApplicationBridge setGrowlDelegate:baker];	// initialize Growl
-	baker = [[ABBaker alloc] init];
 	[[NSGarbageCollector defaultCollector] disableCollectorForPointer:baker];	// don't kill the baker
 	if ([[NSProcessInfo processInfo] respondsToSelector:@selector(enableSuddenTermination)])
 		[[NSProcessInfo processInfo] performSelector:@selector(enableSuddenTermination)];	// on Snow Leopard & later, let the login window kill us dead when the user wants to log out; we don't care
